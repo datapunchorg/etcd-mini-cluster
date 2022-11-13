@@ -28,3 +28,6 @@ Define a set of ports to use, then call `StartMiniCluster`:
 	}
 	miniCluster, err := StartMiniCluster(ports)
 ```
+
+
+See [this test](https://github.com/datapunchorg/etcd-min-cluster/blob/main/pkg/etcdex/minicluster_test.go) for detailed code example.
