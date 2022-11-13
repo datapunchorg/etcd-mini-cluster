@@ -1,4 +1,4 @@
-module github.com/datapunchorg/etcd-embedded-cluster-example
+module github.com/datapunchorg/etcd-mini-cluster
 
 go 1.19
 
