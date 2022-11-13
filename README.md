@@ -12,7 +12,14 @@ This MiniCluster could also be used in unit test code to create an etcd cluster.
 Define a set of ports to use, then call `StartMiniCluster`:
 
 ```
-	ports := []EtcdListenPortPair{
+import (
+	"github.com/datapunchorg/etcd-mini-cluster/pkg/etcdex"
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
+
+func TestMiniCluster(t *testing.T) {
+	ports := []etcdex.EtcdListenPortPair{
 		{
 			ListenPeerPort:   2380,
 			ListenClientPort: 2379,
@@ -26,7 +33,13 @@ Define a set of ports to use, then call `StartMiniCluster`:
 			ListenClientPort: 2383,
 		},
 	}
-	miniCluster, err := StartMiniCluster(ports)
+	miniCluster, err := etcdex.StartMiniCluster(ports)
+	assert.Nil(t, err)
+	if err != nil {
+		return
+	}
+	defer miniCluster.Stop()
+}
 ```
 
 
